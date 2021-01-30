@@ -1,0 +1,227 @@
+{
+    "data": {
+        "url": "https://autoclips.github.io/gallery/USElection.csv",
+        "schema": [
+            {
+                "field": "state",
+                "type": "geographical"
+            },
+            {
+                "field": "candidate",
+                "type": "categorical"
+            },
+            {
+                "field": "party",
+                "type": "categorical"
+            },
+            {
+                "field": "votes",
+                "type": "numerical"
+            }
+        ]
+    },
+    "specs": [
+        {
+            "fact": {
+                "type": "value",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum"
+                    }
+                ],
+                "breakdown": [],
+                "focus": [],
+                "score": 1
+            }
+        },
+        {
+            "fact": {
+                "type": "distribution",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "candidate",
+                        "type": "categorical"
+                    }
+                ],
+                "focus": [],
+                "score": 2
+            }
+        },
+        {
+            "fact": {
+                "type": "extreme",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "candidate",
+                        "type": "categorical"
+                    }
+                ],
+                "focus": [
+                    {
+                        "field": "candidate",
+                        "value": "Biden",
+                        "type": "categorical"
+                    }
+                ],
+                "score": 8
+            }
+        },
+        {
+            "fact": {
+                "type": "distribution",
+                "subspace": [
+                    {
+                        "field": "candidate",
+                        "value": "Biden",
+                        "type": "categorical"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum",
+                        "max": 10000000,
+                        "color": "#4999d3"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "state",
+                        "type": "geographical"
+                    }
+                ],
+                "focus": [],
+                "score": 2
+            }
+        },
+        {
+            "fact": {
+                "type": "rank",
+                "subspace": [
+                    {
+                        "field": "candidate",
+                        "value": "Biden",
+                        "type": "categorical"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum",
+                        "max": 9174089
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "state",
+                        "type": "geographical"
+                    }
+                ],
+                "focus": [],
+                "score": 5
+            }
+        },
+        {
+            "fact": {
+                "type": "distribution",
+                "subspace": [
+                    {
+                        "field": "candidate",
+                        "value": "Trump",
+                        "type": "categorical"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum",
+                        "max": 10000000,
+                        "color": "#c33432"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "state",
+                        "type": "geographical"
+                    }
+                ],
+                "focus": [],
+                "score": 2
+            }
+        },
+        {
+            "fact": {
+                "type": "rank",
+                "subspace": [
+                    {
+                        "field": "candidate",
+                        "value": "Trump",
+                        "type": "categorical"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum",
+                        "max": 9174089
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "state",
+                        "type": "geographical"
+                    }
+                ],
+                "focus": [],
+                "score": 5
+            }
+        },
+        {
+            "fact": {
+                "type": "difference",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "votes",
+                        "aggregate": "sum"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "candidate",
+                        "type": "categorical"
+                    }
+                ],
+                "focus": [
+                    {
+                        "field": "candidate",
+                        "value": "Biden",
+                        "type": "categorical"
+                    },
+                    {
+                        "field": "candidate",
+                        "value": "Trump",
+                        "type": "categorical"
+                    }
+                ],
+                "score": 10
+            }
+        }
+    ]
+}

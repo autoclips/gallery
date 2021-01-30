@@ -1,0 +1,159 @@
+{
+    "data": {
+        "url": "https://autoclips.github.io/gallery/bestsellers.csv",
+        "schema": [
+            {
+                "field": "Name",
+                "type": "categorical"
+            },
+            {
+                "field": "Author",
+                "type": "categorical"
+            },
+            {
+                "field": "User Rating",
+                "type": "numerical"
+            },
+            {
+                "field": "Reviews",
+                "type": "numerical"
+            },
+            {
+                "field": "Price",
+                "type": "numerical"
+            },
+            {
+                "field": "Year",
+                "type": "temporal"
+            },
+            {
+                "field": "Genre",
+                "type": "categorical"
+            }
+        ]
+    },
+    "specs": [
+        {
+            "fact": {
+                "type": "trend",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "Price",
+                        "aggregate": "avg"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "Year"
+                    }
+                ],
+                "focus": [],
+                "score": 10
+            }
+        },
+        {
+            "fact": {
+                "type": "trend",
+                "subspace": [],
+                "measure": [
+                    {
+                        "field": "Reviews",
+                        "aggregate": "avg"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "Year"
+                    }
+                ],
+                "focus": [],
+                "score": 10
+            }
+        },
+        {
+            "fact": {
+                "type": "proportion",
+                "subspace": [],
+                "measure": [],
+                "breakdown": [
+                    {
+                        "field": "Genre"
+                    }
+                ],
+                "focus": [
+                    {
+                        "field": "Genre",
+                        "value": "Fiction"
+                    }
+                ],
+                "score": 10
+            }
+        },
+        {
+            "fact": {
+                "type": "rank",
+                "subspace": [
+                    {
+                        "field": "Genre",
+                        "value": "Fiction"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "Reviews",
+                        "aggregate": "max"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "Name"
+                    }
+                ],
+                "focus": [],
+                "score": 3
+            }
+        },
+        {
+            "fact": {
+                "type": "value",
+                "subspace": [
+                    {
+                        "field": "Author",
+                        "value": "Jeff Kinney"
+                    }
+                ],
+                "measure": [],
+                "breakdown": [
+                    
+                ],
+                "focus": [],
+                "score": 2
+            }
+        },
+        {
+            "fact": {
+                "type": "distribution",
+                "subspace": [
+                    {
+                        "field": "Author",
+                        "value": "Jeff Kinney"
+                    }
+                ],
+                "measure": [
+                    {
+                        "field": "Reviews",
+                        "aggregate": "avg"
+                    }
+                ],
+                "breakdown": [
+                    {
+                        "field": "Name"
+                    }
+                ],
+                "focus": [],
+                "score": 1
+            }
+        }
+    ]
+}

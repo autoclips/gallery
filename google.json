@@ -1,0 +1,178 @@
+{
+  "data": {
+    "url": "https://autoclips.github.io/gallery/googleplaystoredata.csv",
+    "schema": [
+      {
+        "field": "App",
+        "type": "categorical"
+      },
+      {
+        "field": "Category",
+        "type": "categorical"
+      },
+      {
+        "field": "Rating",
+        "type": "numerical"
+      },
+      {
+        "field": "Reviews",
+        "type": "numerical"
+      },
+      {
+        "field": "Installs",
+        "type": "numerical"
+      },
+      {
+        "field": "Type",
+        "type": "categorical"
+      },
+      {
+        "field": "Price",
+        "type": "numerical"
+      },
+      {
+        "field": "Genres",
+        "type": "categorical"
+      }
+    ]
+  },
+  "specs": [
+    {
+      "fact": {
+        "type": "categorization",
+        "subspace": [],
+        "measure": [
+          {
+            "aggregate": "count"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "Type",
+            "type": "categorical"
+          }
+        ],
+        "focus": []
+      }      
+    },
+    {
+      "fact": {
+        "type": "proportion",
+        "subspace": [],
+        "measure": [
+          {
+            "aggregate": "count"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "Type",
+            "type": "categorical"
+          }
+        ],
+        "focus": [
+          {
+            "field": "Type",
+            "value": "Free"
+          }
+        ]
+      }      
+    },
+    {
+      "fact": {
+        "type": "extreme",
+        "subspace": [{
+          "field": "Type",
+          "value": "Free"
+        }],
+        "measure": [
+          {
+            "field": "Installs",
+            "aggregate": "sum"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "Category",
+            "type": "categorical"
+          }
+        ],
+        "focus": [    
+          {
+            "field": "Category",
+            "value": "GAME"
+          }      
+        ]
+      }      
+    },
+    {
+      "fact": {
+        "type": "value",
+        "subspace": [{
+          "field": "Category",
+          "value": "GAME"
+        }],
+        "measure": [
+          {
+            "field": "Rating",
+            "aggregate": "avg"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "Category",
+            "type": "categorical"
+          }
+        ],
+        "focus": [          
+        ]
+      }      
+    },
+    {
+      "fact": {
+        "type": "rank",
+        "subspace": [{
+          "field": "Category",
+          "value": "GAME"
+        }],
+        "measure": [
+          {
+            "field": "Installs",
+            "aggregate": "max"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "App",
+            "type": "categorical"
+          }
+        ],
+        "focus": [    
+            
+        ]
+      }      
+    },
+    {
+      "fact": {
+        "type": "value",
+        "subspace": [{
+          "field": "App",
+          "value": "Subway Surfers"
+        }],
+        "measure": [
+          {
+            "field": "Rating"
+          }
+        ],
+        "breakdown": [
+          {
+            "field": "App",
+            "type": "categorical"
+          }
+        ],
+        "focus": [          
+        ]
+      }      
+    }             
+  ]
+}

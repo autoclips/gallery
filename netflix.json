@@ -1,0 +1,136 @@
+{
+    "data": {
+      "url": "https://autoclips.github.io/gallery/netflix.csv",
+      "schema": [
+        {
+          "field": "date_added",
+          "type": "temporal"
+        },
+        {
+          "field": "type",
+          "type": "categorical"
+        },
+        {
+          "field": "listed_in",
+          "type": "categorical"
+        },
+        {
+          "field": "show_id",
+          "type": "categorical"
+        },
+        {
+          "field": "duration",
+          "type": "numerical"
+        }
+      ]
+    },
+    "specs": [
+      {
+        "fact": {
+          "type": "proportion",
+          "subspace": [],
+          "measure": [
+            {
+              "field": "show_id",
+              "aggregate": "count"
+            }
+          ],
+          "breakdown": [
+            {
+              "field": "type"
+            }
+          ],
+          "focus": [ 
+            {
+              "field": "type",
+              "value": "Movie"
+            }
+          ]
+        }
+    },
+        {
+            "fact": {
+              "type": "trend",
+              "subspace": [{
+                "field": "type",
+                "value": "Movie"
+              }],
+              "measure": [
+                {
+                  "field": "show_id",
+                  "aggregate": "count"
+                }
+              ],
+              "breakdown": [{
+                "field": "date_added"
+              }],
+              "focus": [
+              ]
+            }
+        },
+        {
+            "fact": {
+              "type": "categorization",
+              "subspace": [{
+                "field": "type",
+                "value": "Movie"
+              }],
+              "measure": [
+              ],
+              "breakdown": [
+                {
+                  "field": "listed_in"
+                }
+              ],
+              "focus": [
+              ]
+            }
+        },
+        {
+          "fact": {
+            "type": "distribution",
+            "subspace": [{
+              "field": "type",
+              "value": "Movie"
+            }],
+            "measure": [
+              {
+                "field": "duration",
+                "aggregate": "avg"
+              }
+            ],
+            "breakdown": [{
+              "field": "listed_in"
+            }],
+            "focus": [
+            ]
+          }
+      },
+      {
+          "fact": {
+            "type": "outlier",
+            "subspace": [{
+              "field": "type",
+              "value": "Movie"
+            }],
+            "measure": [
+              {
+                "field": "duration",
+                "aggregate": "avg"
+              }
+            ],
+            "breakdown": [
+              {
+                "field": "listed_in"
+              }
+            ],
+            "focus": [{
+              "field": "listed_in",
+              "value": "Stand-Up Comedy"
+            }
+            ]
+          }
+      }
+  
+      ]
+  }

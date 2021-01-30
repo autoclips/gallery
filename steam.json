@@ -1,0 +1,169 @@
+{
+    "data": {
+      "url": "https://autoclips.github.io/gallery/steam1.csv",
+      "schema": [
+        {
+          "field": "year",
+          "type": "temporal",
+          "pictype": "time"
+        },
+        {
+          "field": "first_genres",
+          "type": "categorical"
+        },
+        {
+          "field": "platforms",
+          "type": "categorical"
+        },
+        {
+          "field": "publisher",
+          "type": "categorical"
+        },
+        {
+          "field": "appid",
+          "type": "categorical"
+        },
+        {
+          "field": "name",
+          "type": "categorical"
+        },
+        {
+          "field": "positive_ratings",
+          "type": "numerical"
+        },
+        {
+          "field": "price",
+          "type": "numerical"
+        }
+      ]
+    },
+    "specs": [
+      {
+        "fact": {
+          "type": "trend",
+          "subspace": [],
+          "measure": [
+            {
+              "field": "appid",
+              "aggregate": "count"
+            }
+          ],
+          "breakdown": [
+            {
+              "field": "year"
+            }
+          ],
+          "focus": [
+          ]
+        }
+    },
+        {
+            "fact": {
+              "type": "proportion",
+              "subspace": [],
+              "measure": [
+                {
+                  "field": "appid",
+                  "aggregate": "count"
+                }
+              ],
+              "breakdown": [
+                {
+                  "field": "platforms"
+                }
+              ],
+              "focus": [
+                {
+                  "field": "platforms",
+                  "value": "windows"
+                }
+              ]
+            }
+        },
+        {
+            "fact": {
+              "type": "distribution",
+              "subspace": [],
+              "measure": [
+                {
+                  "field": "appid",
+                  "aggregate": "count"
+                }
+              ],
+              "breakdown": [
+                {
+                  "field": "first_genres"
+                }
+              ],
+              "focus": [
+              ]
+            }
+        },
+        {
+              "fact": {
+                "type": "rank",
+                "subspace": [],
+                "measure": [
+                  {
+                    "field": "appid",
+                    "aggregate": "count"
+                  }
+                ],
+                "breakdown": [
+                  {
+                    "field": "publisher"
+                  }
+                ],
+                "focus": [
+                ]
+              }
+        },
+        {
+              "fact": {
+                "type": "extreme",
+                "subspace": [],
+                "measure": [
+                  {
+                    "field": "positive_ratings",
+                    "aggregate": "sum"
+                  }
+                ],
+                "breakdown": [
+                  {
+                    "field": "name"
+                  }
+                ],
+                "focus": [{
+                  "field": "name",
+                  "value": "Counter-Strike: Global Offensive"
+                }
+  
+                ]
+              }
+        },
+        {
+              "fact": {
+                "type": "extreme",
+                "subspace": [],
+                "measure": [
+                  {
+                    "field": "price",
+                    "aggregate": "sum"
+                  }
+                ],
+                "breakdown": [
+                  {
+                    "field": "name"
+                  }
+                ],
+                "focus": [
+                  {
+                    "field": "name",
+                    "value": "ADR-Labelling Game"
+                  }
+                ]
+              }
+        }
+  
+      ]
+  }
